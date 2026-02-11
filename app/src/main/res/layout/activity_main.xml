@@ -26,43 +26,50 @@
 
     <android.widget.Button
         android:id="@+id/addUserButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="130dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/custom_button2"
+        android:fontFamily="monospace"
         android:text="New User"
-        android:background="@drawable/custom_button1"
         android:textColor="#fff"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleTextView"
-        app:layout_constraintVertical_bias="0.35000002" />
+        app:layout_constraintTop_toBottomOf="@+id/blueAnimeEyesImageView" />
 
     <android.widget.Button
         android:id="@+id/existingUserButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="130dp"
+        android:layout_height="60dp"
         android:layout_marginTop="30dp"
         android:background="@drawable/custom_button1"
-        android:textColor="#fff"
+        android:fontFamily="monospace"
         android:text="Existing Users"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textColor="#fff"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addUserButton"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/addUserButton" />
 
     <ImageView
+        android:id="@+id/blueAnimeEyesImageView"
         android:layout_width="210dp"
         android:layout_height="114dp"
-        android:src="@drawable/blueAnimeEyes"
+        android:layout_marginTop="24dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/blue_anime_eyes"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleTextView" />
 
     <ImageView
+        android:id="@+id/purpleAnimeEyesImageView"
         android:layout_width="210dp"
         android:layout_height="115dp"
-        android:src="@drawable/purpleAnimeEyes"
+        android:layout_marginBottom="50dp"
+        android:src="@drawable/purple_anime_eyes"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
