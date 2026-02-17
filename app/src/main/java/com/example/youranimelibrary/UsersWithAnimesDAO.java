@@ -6,6 +6,7 @@ import androidx.room.Transaction;
 
 import java.util.List;
 
+@Dao
 public interface UsersWithAnimesDAO {
 
     @Transaction
