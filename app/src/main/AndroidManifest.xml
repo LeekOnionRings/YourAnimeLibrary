@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.YourAnimeLibrary">
         <activity
+            android:name=".ExistingUserActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddUserActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

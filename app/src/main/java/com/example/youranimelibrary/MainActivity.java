@@ -27,21 +27,21 @@ public class MainActivity extends AppCompatActivity {
         Button addUserButton = findViewById(R.id.addUserButton);
         Button existingUserButton = findViewById(R.id.existingUserButton);
 
-        /*Intent switchToAddUser = new Intent(this, AddUserActivity.class);
+        Intent switchToAddUser = new Intent(this, AddUserActivity.class);
         addUserButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(switchToAddUser);
             }
-        });*/
+        });
 
-        /*Intent switchToExistingUser = new Intent(this, ExistingUserActivity.class);
+        Intent switchToExistingUser = new Intent(this, ExistingUserActivity.class);
         existingUserButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(switchToExistingUser);
             }
-        });*/
+        });
 
     }
 }

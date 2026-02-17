@@ -5,6 +5,7 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 import androidx.room.Delete;
+import java.util.List;
 
 @Dao
 public interface UserDAO {
@@ -18,9 +19,11 @@ public interface UserDAO {
     @Delete
     void deleteUser(User u);
 
-    @Query("SELECT * FROM USER WHERE userID = :userID")
+    @Query("SELECT * FROM User WHERE userID = :userID")
     User getUser(int userID);
 
+    @Query("SELECT * FROM User ORDER BY userID")
+    List<User> getAllUsers();
 
 
 
