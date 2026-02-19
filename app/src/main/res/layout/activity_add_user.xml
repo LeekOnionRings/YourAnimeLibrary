@@ -38,11 +38,15 @@
         app:layout_constraintTop_toBottomOf="@+id/addUserTextView"
         app:layout_constraintVertical_bias="0.19999999" />
 
-    <Button
+    <android.widget.Button
         android:id="@+id/addUsernameButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="130dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="25dp"
+        android:background="@drawable/custom_button2"
         android:text="ADD USER"
+        android:textColor="#fff"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
