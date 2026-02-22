@@ -6,14 +6,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/adduser_drawable_background"
-    tools:context=".AddUserActivity">
+    tools:context=".EditUserActivity">
+
 
     <TextView
-        android:id="@+id/addUserTextView"
+        android:id="@+id/editUserTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="casual"
-        android:text="PLEASE ENTER A NEW USERNAME"
+        android:text="PLEASE EDIT YOUR OLD USERNAME"
         android:textAlignment="center"
         android:textColor="#670178"
         android:textSize="36sp"
@@ -25,7 +26,7 @@
         app:layout_constraintVertical_bias="0.19999999" />
 
     <EditText
-        android:id="@+id/addUserEditText"
+        android:id="@+id/editUserEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -34,21 +35,22 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addUserTextView"
+        app:layout_constraintTop_toBottomOf="@+id/editUserTextView"
         app:layout_constraintVertical_bias="0.19999999" />
 
     <android.widget.Button
-        android:id="@+id/addUsernameButton"
+        android:id="@+id/editUsernameButton"
         android:layout_width="130dp"
         android:layout_height="60dp"
         android:layout_marginBottom="25dp"
         android:background="@drawable/custom_button2"
-        android:text="ADD USER"
+        android:text="EDIT USER"
         android:textColor="#fff"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addUserEditText"
+        app:layout_constraintTop_toBottomOf="@+id/editUserEditText"
         app:layout_constraintVertical_bias="0.3" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
