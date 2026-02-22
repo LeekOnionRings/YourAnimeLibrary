@@ -5,6 +5,7 @@ import static androidx.core.content.ContextCompat.startActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 public class CustomAdapter1 extends RecyclerView.Adapter<CustomAdapter1.MyHandler> {
     public static class MyHandler extends RecyclerView.ViewHolder {
 
+        TextView username;
         public MyHandler(@NonNull View itemView) {
             super(itemView);
         }
