@@ -10,6 +10,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.Room;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,6 +29,11 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
+        AnimeDatabase animeDb = Room.databaseBuilder(getApplicationContext(),
+                        AnimeDatabase.class, "AnimeDB")
+                .fallbackToDestructiveMigration()
+                .allowMainThreadQueries().build();
+
         Button addUserButton = findViewById(R.id.addUserButton);
         Button existingUserButton = findViewById(R.id.existingUserButton);
 
@@ -34,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(switchToAddUser);
             }
         });
+
+
 
         Intent switchToExistingUser = new Intent(this, ExistingUserActivity.class);
         existingUserButton.setOnClickListener(new View.OnClickListener() {

@@ -4,6 +4,7 @@ import static androidx.core.content.ContextCompat.startActivity;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.widget.Button;
 import android.widget.TextView;
@@ -58,12 +59,34 @@ public class CustomAdapter1 extends RecyclerView.Adapter<CustomAdapter1.MyHandle
     @NonNull
     @Override
     public MyHandler onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return null;
+
+        View inflatedLayout = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.user_layout, parent, false);
+
+        return new MyHandler(inflatedLayout);
+
     }
 
 
     @Override
     public void onBindViewHolder(@NonNull MyHandler holder, int position) {
+
+        User theUser = userList.get(position);
+        holder.usernameTextView.setText(theUser.getUsername());
+
+        //If the user wants to edit their username (activity, maybe change to dialog/popup in future)
+        holder.editUserButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent switchToEditUserActivity = new Intent(v.getContext(), EditUserActivity.class);
+                switchToEditUserActivity.putExtra("oneUniqueUser", theUser.userID);
+                v.getContext().startActivity(switchToEditUserActivity);
+            }
+        });
+
+
+        //If the user wants to delete their account
+
 
     }
 
