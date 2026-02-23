@@ -75,6 +75,16 @@ public class CustomAdapter1 extends RecyclerView.Adapter<CustomAdapter1.MyHandle
         User theUser = userList.get(position);
         holder.usernameTextView.setText(theUser.getUsername());
 
+        //If the user wants to view their anime collection
+        holder.viewAnimesButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent switchToViewAnimeActivity = new Intent(v.getContext(), ViewAnimeActivity.class);
+                switchToViewAnimeActivity.putExtra("oneUniqueUser", theUser.userID);
+                v.getContext().startActivity(switchToViewAnimeActivity);
+            }
+        });
+
         //If the user wants to edit their username (activity, maybe change to dialog/popup in future)
         holder.editUserButton.setOnClickListener(new View.OnClickListener() {
             @Override

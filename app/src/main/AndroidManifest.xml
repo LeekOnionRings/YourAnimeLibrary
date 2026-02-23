@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.YourAnimeLibrary">
         <activity
+            android:name=".ViewAnimeActivity"
+            android:exported="false" />
+        <activity
             android:name=".EditUserActivity"
             android:exported="false" />
         <activity
