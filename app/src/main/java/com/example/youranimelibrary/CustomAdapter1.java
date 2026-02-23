@@ -96,6 +96,9 @@ public class CustomAdapter1 extends RecyclerView.Adapter<CustomAdapter1.MyHandle
                         .allowMainThreadQueries().build();
 
                 animeDb.userDAO().deleteUser(theUser);
+                userList.remove(holder.getBindingAdapterPosition());
+                notifyItemRemoved(holder.getBindingAdapterPosition());
+                notifyItemRangeChanged(holder.getBindingAdapterPosition(), getItemCount());
 
             }
         });
