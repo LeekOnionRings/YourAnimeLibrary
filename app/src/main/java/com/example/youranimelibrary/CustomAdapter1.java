@@ -3,6 +3,7 @@ package com.example.youranimelibrary;
 import static androidx.core.content.ContextCompat.startActivity;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.Room;
 
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -84,8 +85,20 @@ public class CustomAdapter1 extends RecyclerView.Adapter<CustomAdapter1.MyHandle
             }
         });
 
-
         //If the user wants to delete their account
+        holder.deleteUserButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                AnimeDatabase animeDb = Room.databaseBuilder(v.getContext(),
+                                AnimeDatabase.class, "AnimeDB")
+                        .fallbackToDestructiveMigration()
+                        .allowMainThreadQueries().build();
+
+                animeDb.userDAO().deleteUser(theUser);
+
+            }
+        });
 
 
     }
