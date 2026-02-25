@@ -1,12 +1,20 @@
 package com.example.youranimelibrary;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.Room;
+
+import java.util.List;
 
 public class ViewAnimeActivity extends AppCompatActivity {
 
@@ -20,5 +28,31 @@ public class ViewAnimeActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        AnimeDatabase animeDb = Room.databaseBuilder(getApplicationContext(),
+                        AnimeDatabase.class, "AnimeDB")
+                .fallbackToDestructiveMigration()
+                .allowMainThreadQueries().build();
+
+        int receievedUserID = getIntent().getIntExtra("oneUniqueUser", 0);
+        List<UsersWithAnimes> getAllAnimes = animeDb.usersWithAnimesDAO().getUserWithAnimes(receievedUserID);
+        Button addAnimeButton = findViewById(R.id.addAnimeButton);
+
+        Intent switchToAddAnime = new Intent(this, AddAnimeActivity.class);
+        addAnimeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(switchToAddAnime);
+            }
+        });
+
+
+        //Do this but for animes
+        /*List<User> getAllUsers = animeDb.userDAO().getAllUsers();
+        RecyclerView userRV = findViewById(R.id.userRecyclerView);
+        userRV.setLayoutManager(new LinearLayoutManager(this));
+        userRV.setAdapter(new CustomAdapter1(getAllUsers));*/
+
+
     }
 }

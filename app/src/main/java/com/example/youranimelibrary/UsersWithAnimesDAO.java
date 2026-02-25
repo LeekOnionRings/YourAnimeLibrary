@@ -10,7 +10,7 @@ import java.util.List;
 public interface UsersWithAnimesDAO {
 
     @Transaction
-    @Query("SELECT * FROM User")
-    public List<UsersWithAnimes> getAllUsersWithAnimes();
+    @Query("SELECT * FROM Anime WHERE userID = :userID")
+    public List<UsersWithAnimes> getUserWithAnimes(int userID);
 
 }

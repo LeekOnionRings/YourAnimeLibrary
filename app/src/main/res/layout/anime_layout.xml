@@ -6,11 +6,11 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/animeNameTextview"
+        android:id="@+id/animeNameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="10dp"
         android:text="Anime Name"
         android:textSize="17sp"
         android:textStyle="bold"
@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
         android:text="Anime Genre"
-        app:layout_constraintStart_toEndOf="@+id/animeNameTextview"
+        app:layout_constraintStart_toEndOf="@+id/animeNameTextView"
         app:layout_constraintTop_toTopOf="parent" />
 
     <android.widget.ImageButton
@@ -31,10 +31,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="5dp"
         android:background="@android:drawable/btn_star_big_off"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></android.widget.ImageButton>
+        app:layout_constraintTop_toTopOf="parent">
+    </android.widget.ImageButton>
 
     <TextView
         android:id="@+id/animeToWatchTextView"
@@ -42,19 +43,39 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
         android:layout_marginTop="30dp"
-        android:text="Need To Watch"
-        app:layout_constraintStart_toEndOf="@+id/animeNameTextview"
+        android:clickable="true"
+        android:text="Have Watched"
+        app:layout_constraintStart_toEndOf="@+id/animeNameTextView"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Spinner
-        android:id="@+id/animeRatingSpinner"
+    <android.widget.Button
+        android:id="@+id/editAnimeButton"
+        android:layout_width="45dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="90dp"
+        android:background="@drawable/pencil_icon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <android.widget.Button
+        android:id="@+id/deleteAnimeButton"
+        android:layout_width="45dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="90dp"
+        android:background="@drawable/trash_can_icon"
+        app:layout_constraintStart_toEndOf="@+id/editAnimeButton"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/animeRatingTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="150dp"
         android:layout_marginTop="15dp"
-        android:entries="@array/rating_array"
+        android:text="Rating"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/animeNameTextview"
+        app:layout_constraintStart_toEndOf="@+id/animeToWatchTextView"
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
