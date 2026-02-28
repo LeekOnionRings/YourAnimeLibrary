@@ -1,5 +1,6 @@
 package com.example.youranimelibrary;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -41,26 +42,49 @@ public class AddAnimeActivity extends AppCompatActivity {
         RadioGroup watchedRG = findViewById(R.id.watchedRadioGroup);
         RadioGroup favoriteRG = findViewById(R.id.favoriteRadioGroup);
         Spinner ratingAnimeSpinner = findViewById(R.id.ratingAnimeSpinner);
+        Intent switchToViewAnimeActivity = new Intent(this, ViewAnimeActivity.class);
 
-
-        //Testing
-        /*watchedRG.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(@NonNull RadioGroup group, int checkedId) {
-                View watchedRB = watchedRG.findViewById(watchedRG.getCheckedRadioButtonId());
-                int watchedIndex = watchedRG.indexOfChild(watchedRB);
-                Log.i("testRadioButton", String.valueOf(watchedIndex)); //0 for yes, //1 for no
-            }
-        });*/
 
         addAnimeToDatabaseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String officialAnimeName = editAnimeName.getText().toString();
-                String officialAnimeGenre = editAnimeGenre.getText().toString();
 
+                Boolean haveWatched = false;
+                Boolean haveFavorite = false;
+
+                //To add anime name and genre
+                String officialAnimeName = editAnimeName.getText().toString();
+                Log.i("testAnimeName", officialAnimeName);
+                String officialAnimeGenre = editAnimeGenre.getText().toString();
+                Log.i("testAnimeGenre", officialAnimeGenre);
+
+                //For radio groups
+                View watchedRB = watchedRG.findViewById(watchedRG.getCheckedRadioButtonId());
+                int watchedIndex = watchedRG.indexOfChild(watchedRB); //0 for yes, //1 for no
+                if(watchedIndex == 0) {
+                    haveWatched = true;
+                }
+                Log.i("testWatchRadioButton", String.valueOf(watchedIndex));
+
+                View favoriteRB = favoriteRG.findViewById(favoriteRG.getCheckedRadioButtonId());
+                int favoriteIndex = favoriteRG.indexOfChild(favoriteRB); //0 for yes, //1 for no
+                if(favoriteIndex == 0) {
+                    haveFavorite = true;
+                }
+                Log.i("testFavoriteRadioButton", String.valueOf(favoriteIndex));
+
+                //To add rating
+                int officialRating = ratingAnimeSpinner.getSelectedItemPosition(); //need to display officialRating + 1
+                Log.i("testRating", String.valueOf(officialRating));
+
+                Anime a = new Anime(officialAnimeName, officialAnimeGenre, haveWatched, haveFavorite, officialRating + 1);
+                animeDb.animeDAO().addAnime(a);
+                Log.i("TestTestAnAdd", animeDb.animeDAO().getAnime(1).getAnimeName());
+
+                startActivity(switchToViewAnimeActivity);
             }
         });
+
 
 
     }

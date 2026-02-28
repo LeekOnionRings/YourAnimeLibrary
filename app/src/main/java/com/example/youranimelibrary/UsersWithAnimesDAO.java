@@ -14,4 +14,6 @@ public interface UsersWithAnimesDAO {
     @Query("SELECT * FROM Anime WHERE userID = :userID")
     public List<UsersWithAnimes> getUserWithAnimes(int userID);
 
+
+
 }

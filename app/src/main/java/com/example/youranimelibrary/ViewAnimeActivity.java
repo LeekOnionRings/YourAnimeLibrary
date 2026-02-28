@@ -49,10 +49,10 @@ public class ViewAnimeActivity extends AppCompatActivity {
 
 
         //Do this but for animes
-        /*List<User> getAllUsers = animeDb.userDAO().getAllUsers();
-        RecyclerView userRV = findViewById(R.id.userRecyclerView);
-        userRV.setLayoutManager(new LinearLayoutManager(this));
-        userRV.setAdapter(new CustomAdapter1(getAllUsers));*/
+        List<Anime> getAnimeList = animeDb.animeDAO().getAllAnimes();
+        RecyclerView animeRV = findViewById(R.id.animeRecyclerView);
+        animeRV.setLayoutManager(new LinearLayoutManager(this));
+        animeRV.setAdapter(new CustomAdapter2(getAnimeList));
 
 
     }
