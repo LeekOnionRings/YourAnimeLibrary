@@ -42,6 +42,7 @@ public class ViewAnimeActivity extends AppCompatActivity {
         addAnimeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                switchToAddAnime.putExtra("userID", receievedUserID);
                 startActivity(switchToAddAnime);
             }
         });
